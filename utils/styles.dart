@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app_step3/utils/color.dart';
+import 'package:cs_310_proje/utils/color.dart';
 
 final kHeadingTextStyle = TextStyle(
-  color: AppColors.headingColor,
-  fontWeight: FontWeight.w900,
+  color: AppColors.maincolor,
+  fontWeight: FontWeight.w500,
   fontSize: 30.0,
   letterSpacing: -0.7,
 );
 
 final kButtonLightTextStyle = TextStyle(
-  color: AppColors.textColor,
+  color: AppColors.primary,
   fontSize: 20.0,
   letterSpacing: -0.7,
 );
 
 final kButtonDarkTextStyle = TextStyle(
-  color: Colors.white,
+  color: AppColors.primaryDark,
   fontSize: 20.0,
   letterSpacing: -0.7,
 );
