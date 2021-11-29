@@ -1,6 +1,7 @@
+
 import 'package:flutter/material.dart';
-import 'package:mobile_app_step3/utils/color.dart';
-import 'package:mobile_app_step3/utils/styles.dart';
+import 'package:cs_310_proje/utils/color.dart';
+import 'package:cs_310_proje/utils/styles.dart';
 
 class LoginScreen extends StatelessWidget {
   final Color? backgroundColor1;
@@ -18,16 +19,16 @@ class LoginScreen extends StatelessWidget {
     this.logo = const AssetImage("assets/images/full-bloom.png"),
   });
 
-   @override
-   Widget build(BuildContext context) {
-     return Scaffold(
-       body: SingleChildScrollView(
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
         child: Container(
           decoration: new BoxDecoration(
             gradient: new LinearGradient(
               begin: Alignment.centerLeft,
               end: new Alignment(1.0, 0.0), // 10% of the width, so there are ten blinds.
-              colors: [this.backgroundColor1!, this.backgroundColor2!], // whitish to gray
+              colors: [AppColors.primaryDark, AppColors.primary], // whitish to gray
               tileMode: TileMode.repeated, // repeats the gradient over the canvas
             ),
           ),
@@ -152,8 +153,11 @@ class LoginScreen extends StatelessWidget {
                     new Expanded(
                       child: new FlatButton(
                         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-                        color: this.highlightColor,
+                        color: AppColors.textColor,
                         onPressed: () => {},
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)
+                        ),
                         child: Text(
                           "Log In",
                           style: TextStyle(color: this.foregroundColor),
@@ -197,6 +201,9 @@ class LoginScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
                         color: Colors.transparent,
                         onPressed: () => {},
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)
+                        ),
                         child: Text(
                           "Don't have an account? Sign up! ",
                           style: TextStyle(color: this.foregroundColor!.withOpacity(0.5)),
