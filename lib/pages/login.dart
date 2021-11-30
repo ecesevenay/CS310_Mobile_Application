@@ -195,22 +195,24 @@ class LoginScreen extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0, bottom: 20.0),
                 alignment: Alignment.center,
                 child: new Row(
-                  children: <Widget>[
-                    new Expanded(
-                      child: new FlatButton(
-                        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-                        color: Colors.transparent,
-                        onPressed: () => {},
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)
-                        ),
-                        child: Text(
-                          "Don't have an account? Sign up! ",
-                          style: TextStyle(color: this.foregroundColor!.withOpacity(0.5)),
-                        ),
-                      ),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Don't have an account?", style: TextStyle(
+                    color: AppColors.backgroundColor.withOpacity(0.5),
+                    fontWeight: FontWeight.w600)
+                ),
+                    TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/signup');
+                          },
+                          child:Text("Sign up! ",
+                          style: TextStyle(
+                              color: AppColors.backgroundColor.withOpacity(0.5),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18),
+                          )
                     ),
-                  ],
+                  ]
                 ),
               ),
             ],

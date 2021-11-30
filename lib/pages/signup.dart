@@ -4,35 +4,52 @@ import 'package:cs_310_proje/utils/color.dart';
 class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      //resizeToAvoidBottomPadding: false,
-      backgroundColor : AppColors.maincolor,
-      appBar: AppBar(
-        elevation: 0,
-        brightness: Brightness.light,
-        backgroundColor: AppColors.maincolor,
-        leading:
-        IconButton( onPressed: (){
-          Navigator.pop(context);
-        },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
+    return Container (
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [AppColors.primaryDark, AppColors.primary/*AppColors.secondary*/])),
+        child:Scaffold(
+          resizeToAvoidBottomInset: false,
+          //resizeToAvoidBottomPadding: false,
+          backgroundColor : Colors.transparent,
+          appBar: AppBar(
+            centerTitle: true,
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors:<Color>[AppColors.primaryDark, AppColors.primary]
+                )
+              ),
+            ),
+            elevation: 0,
+            brightness: Brightness.light,
+            backgroundColor: Colors.transparent,
+            leading:
+            IconButton( onPressed: (){
+              Navigator.pop(context);
+              },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
+          ),
+          body: SafeArea(
+            child: SingleChildScrollView(
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text ("Sign up!", style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold, color: AppColors.backgroundColor
+
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text ("Sign up!", style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold, color: AppColors.backgroundColor
                         ),),
                         SizedBox(height: 20,),
                         Text("Create an Account",style: TextStyle(
@@ -63,22 +80,22 @@ class SignupPage extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(40),
                             border: Border(
-                                bottom: BorderSide(color: Colors.white),
-                                top: BorderSide(color: Colors.white),
-                                right: BorderSide(color: Colors.white),
-                                left: BorderSide(color: Colors.white)
+                                bottom: BorderSide(color: Colors.transparent),
+                                top: BorderSide(color: Colors.transparent),
+                                right: BorderSide(color: Colors.transparent),
+                                left: BorderSide(color: Colors.transparent)
                             )
                         ),
                         child: MaterialButton(
                           minWidth: double.infinity,
                           height:60,
                           onPressed: (){},
-                          color: Colors.white70,
+                          color: AppColors.textColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(40)
                           ),
                           child: Text("Sign Up",style: TextStyle(
-                            fontWeight: FontWeight.w800,fontSize: 16, color:Colors.black
+                              fontWeight: FontWeight.w800,fontSize: 16, color:Colors.white
 
                           ),),
                         ),
@@ -93,11 +110,16 @@ class SignupPage extends StatelessWidget {
                             fontWeight: FontWeight.w600)
 
                         ),
-                        Text("Login",style: TextStyle(
-                            color: AppColors.backgroundColor.withOpacity(0.5),
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18
-                        ),),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/login');
+                          },
+                          child: Text("Login",style: TextStyle(
+                              color: AppColors.backgroundColor.withOpacity(0.5),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18),
+                        ),
+                        ),
                       ],
                     )
                   ],
@@ -108,6 +130,7 @@ class SignupPage extends StatelessWidget {
           ),
         ),
       ),
+    )
     );
   }
 }
